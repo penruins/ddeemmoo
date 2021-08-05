@@ -1,11 +1,14 @@
 package com.example.springboot0001;
 
+import com.example.springboot0001.entity.User2;
 import com.example.springboot0001.mapper.UserMapper;
+import com.example.springboot0001.mapper.UserMapper2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.example.springboot0001.entity.User;
 
+import java.util.Date;
 import java.util.List;
 
 @SpringBootTest
@@ -13,6 +16,9 @@ class Springboot0001ApplicationTests {
 
   @Autowired
   private UserMapper userMapper;
+
+  @Autowired
+  private UserMapper2 userMapper2;
 
   @Test
   void contextLoads() {
@@ -26,5 +32,20 @@ class Springboot0001ApplicationTests {
       System.out.println(user);
     }
   }
-
+  @Test
+  public void testInsert() {
+    User2 user = new User2();
+    user.setId(2);
+    user.setName("penruins");
+    user.setAge(23);
+    user.setEmail("lx_tdcq_king@icloud.com");
+    user.setCreateTime(new Date());
+    user.setUpdateTime(new Date());
+    if(userMapper2.insert(user) == 1) {
+      userMapper2.selectList(null)
+        .forEach(System.out::println);
+    } else {
+      System.out.println("添加数据失败");
+    }
+  }
 }

@@ -41,6 +41,11 @@
 在 `application.yaml` 中添加一行配置，在执行时会打印出sql语句
 
 
+`Springboot0001ApplicationTests.testInsert`
+- 新建一个 `entity` `User2`, 它和 `User` 的区别在于多了两个字段，`update_time` 和 `create_time`
+- 这两个字段在测试方法中是需要手动添加的，在后面需要实现自动填充
+
+
 
 
 
