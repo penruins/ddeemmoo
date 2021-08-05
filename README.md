@@ -16,14 +16,14 @@
 可以使用 postman 模拟post请求，请求地址 `localhost:8080/addUser`, 在 body里面添加 json 数据
 ```json
 {
-	"code": "1234",
-	"user": {
-		"username": "penruins",
-		"password": "mzrfviwhninayh",
-		"email": "lx_tdcq_king@icloud.com",
-		"phone": "17356582393"
-	},
-	"msg": "login success"
+  "code": "1234",
+  "user": {
+    "username": "penruins",
+	"password": "mzrfviwhninayh",
+	"email": "lx_tdcq_king@icloud.com",
+	"phone": "17356582393"
+  },
+  "msg": "login success"
 }
 
 ```
@@ -37,6 +37,8 @@
 - 编写UserMapper
 - 在 `Springboot0001Application` 中添加注解 @MapperScan()
 - 在测试类 P0001ApplicationTests 编写测试代码
+
+在 `application.yaml` 中添加一行配置，在执行时会打印出sql语句
 
 
 
