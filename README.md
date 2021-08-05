@@ -25,4 +25,26 @@
 	},
 	"msg": "login success"
 }
+
 ```
+
+`Springboot0001ApplicationTests.testSelect`
+读取数据库中t_user的数据
+- 在 `pom.xml` 中添加 `postgresql`, `mybatis plus` 和 `lombok` 的依赖
+- 在 `application.yaml` 中添加 `datasource`
+- 在数据库中创建数据表，初始化一些数据，脚本在script/db.sql中
+- 编写与数据库对应的实体类 User
+- 编写UserMapper
+- 在 `Springboot0001Application` 中添加注解 @MapperScan()
+- 在测试类 P0001ApplicationTests 编写测试代码
+
+
+
+
+
+
+
+
+
+
+

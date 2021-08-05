@@ -32,6 +32,21 @@
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
         </dependency>
+        <!-- 数据库 postgreSQL 的依赖 -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- mybatis plus 的依赖 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>
