@@ -45,6 +45,11 @@
 - 新建一个 `entity` `User2`, 它和 `User` 的区别在于多了两个字段，`update_time` 和 `create_time`
 - 这两个字段在测试方法中是需要手动添加的，在后面需要实现自动填充
 
+`Springboot0001ApplicationTests.testInsert2`
+- 在实体类的成员 `createTime` 和 `updateTime` 上添加注解
+- 编写 `MyMetaObjectHandler` 并实现 `MetaObjectHandler`
+- 编写测试代码, 创建时间和修改时间现在不赋值的情况下，也是有数据的
+
 
 
 

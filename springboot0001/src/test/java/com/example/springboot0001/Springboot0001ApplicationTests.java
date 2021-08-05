@@ -48,4 +48,37 @@ class Springboot0001ApplicationTests {
       System.out.println("添加数据失败");
     }
   }
+
+  @Test
+  public void testInsert2() {
+    User2 user = new User2();
+    user.setId(6);
+    user.setName("penruins");
+    user.setAge(23);
+    user.setEmail("lx_tdcq_king@icloud.com");
+    // `createTime` 和 `updateTime` 没有赋值
+    if(userMapper2.insert(user) == 1) {
+      userMapper2.selectList(null)
+        .forEach(System.out::println);
+    } else {
+      System.out.println("添加数据失败");
+    }
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
