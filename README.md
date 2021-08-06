@@ -50,13 +50,7 @@
 - 编写 `MyMetaObjectHandler` 并实现 `MetaObjectHandler`
 - 编写测试代码, 创建时间和修改时间现在不赋值的情况下，也是有数据的
 
-
-
-
-
-
-
-
-
-
-
+## springboot002
+测试websocket
+1. 添加依赖
+2. 添加配置 `WebSocketConfig`
