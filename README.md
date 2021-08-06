@@ -52,5 +52,11 @@
 
 ## springboot002
 测试websocket
-1. 添加依赖
+1. 添加依赖 `spring-boot-starter-websocket`
 2. 添加配置 `WebSocketConfig`
+3. 编写 `WebSocketServer`
+4. 在启动类上添加 `@EnableScheduling`
+5. 创建定时任务 `SendSchedule`
+
+最后的实现效果是访问了websocket地址 `ws://localhost:8888/imserver/111`的客户端会每隔5s收到一条 message
+在代码中这条 message 是服务器当前的时间
