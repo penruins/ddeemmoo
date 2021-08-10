@@ -4,15 +4,14 @@
 ## nomal
 ### base
 `HelloWorld` 打印 hello world
-
 ### date
 `DateTest.test001()` 对日期进行计算<br>
 `DateTest.test002()` 如何获取此时此刻的小时数<br>
-
 ### database
 #### postgresql
 `MainTest.test001()` 查询数据库中 `t_users` 表中的所有数据，并且打印
-
+### random
+`NameRandom.randomNames()` 随机生成400个名字
 ## springboot001
 `UserController.addUser` 测试将post请求中的数据封装为实体类<br>
 可以使用 postman 模拟post请求，请求地址 `localhost:8080/addUser`, 在 body里面添加 json 数据
