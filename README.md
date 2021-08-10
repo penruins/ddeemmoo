@@ -12,6 +12,9 @@
 `MainTest.test001()` 查询数据库中 `t_users` 表中的所有数据，并且打印
 ### random
 `NameRandom.randomNames()` 随机生成400个名字
+### redis
+`RedisTest.test001()` 连接 `redis`<br>
+`RedisTest.test002()` set a k-v to redis
 ## springboot001
 `UserController.addUser` 测试将post请求中的数据封装为实体类<br>
 可以使用 postman 模拟post请求，请求地址 `localhost:8080/addUser`, 在 body里面添加 json 数据
