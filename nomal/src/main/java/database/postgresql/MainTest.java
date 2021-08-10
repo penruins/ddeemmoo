@@ -3,13 +3,14 @@ package database.postgresql;
 import random.NameRandom;
 import random.NumberRandom;
 import random.entity.People;
+import redis.clients.jedis.Jedis;
 
 import java.sql.*;
 import java.util.List;
 
 public class MainTest {
   public static void main(String[] args) throws Exception{
-    test002();
+    test004();
   }
 
   /**
@@ -64,4 +65,109 @@ public class MainTest {
       System.out.println(i);
     }
   }
+  public static void test003() throws Exception {
+    // 建立数据库的时候 `first` 都拼错了
+    long startTime = System.currentTimeMillis();
+    String url = "jdbc:postgresql://localhost:5432/myfrist";
+    String username = "postgres";
+    String password = "mzrfviwhninayh";
+
+    String sql = "select * from t_people";
+
+    Class.forName("org.postgresql.Driver").newInstance();
+    Connection connection = DriverManager.getConnection(url,username,password);
+
+    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    ResultSet resultSet = null;
+    resultSet = preparedStatement.executeQuery();
+    while (resultSet.next()) {
+      long id = resultSet.getLong("id");
+      String name = resultSet.getString("name");
+      int age = resultSet.getInt("age");
+      System.out.println("id=" + id + ", name=" + name + " ,age=" + age);
+    }
+    long endTime = System.currentTimeMillis();
+    long duration = (endTime - startTime);
+    System.out.println("duration=" + duration);
+  }
+  public static void test004() throws Exception {
+    long startTime = System.currentTimeMillis();
+    String url = "jdbc:postgresql://localhost:5432/myfrist";
+    String username = "postgres";
+    String password = "mzrfviwhninayh";
+
+    String sql = "select * from t_people where id=?";
+
+    Class.forName("org.postgresql.Driver").newInstance();
+    Connection connection = DriverManager.getConnection(url,username,password);
+    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    for(long i=0;i<1599999;i++) {
+      preparedStatement.setLong(1,i);
+      ResultSet resultSet = null;
+      resultSet = preparedStatement.executeQuery();
+      while (resultSet.next()) {
+        long id = resultSet.getLong("id");
+        String name = resultSet.getString("name");
+        int age = resultSet.getInt("age");
+        System.out.println("id=" + id + ", name=" + name + " ,age=" + age);
+      }
+    }
+    long endTime = System.currentTimeMillis();
+    long duration = (endTime - startTime);
+    System.out.println("duration=" + duration);
+  }
+  public static void test005() throws Exception {
+    Jedis jedis = new Jedis("localhost");
+
+    long startTime = System.currentTimeMillis();
+    String url = "jdbc:postgresql://localhost:5432/myfrist";
+    String username = "postgres";
+    String password = "mzrfviwhninayh";
+
+    String sql = "select * from t_people where id=?";
+
+    Class.forName("org.postgresql.Driver").newInstance();
+    Connection connection = DriverManager.getConnection(url,username,password);
+    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+    for(long i=0;i<1599999;i++) {
+      String key = i+"_id";
+      if(jedis.exists(key)) {
+        System.out.println(jedis.get(key));
+      } else {
+        preparedStatement.setLong(1,i);
+        ResultSet resultSet = null;
+        resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+          long id = resultSet.getLong("id");
+          String name = resultSet.getString("name");
+          int age = resultSet.getInt("age");
+          String value = "id=" + id + ", name=" + name + " ,age=" + age;
+          jedis.set(key,value);
+          System.out.println(value);
+        }
+      }
+    }
+    long endTime = System.currentTimeMillis();
+    long duration = (endTime - startTime);
+    System.out.println("duration=" + duration);
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

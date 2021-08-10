@@ -9,8 +9,14 @@
 `DateTest.test002()` 如何获取此时此刻的小时数<br>
 ### database
 #### postgresql
-`MainTest.test001()` 查询数据库中 `t_users` 表中的所有数据，并且打印
-`MainTest.test002()` 在数据库表 `t_people` 插入数据，有一百六十万条
+`MainTest.test001()` 查询数据库中 `t_users` 表中的所有数据，并且打印<br>
+`MainTest.test002()` 在数据库表 `t_people` 插入数据，有一百六十万条<br>
+`MainTest.test003()` 读取 160万 条用户的数据<br>
+`MainTest.test004()` 查询 160万 条用户的数据，根据 id<br>
+`MainTest.test005()` 查询 160万 条用户的数据，根据 id, 先在 `redis` 中查询，如果存在直接读出，如果不存在查询 `postgreSQL`, 并插入 `redis`<br>
+运行 `test004()` 162945ms
+第一次运行 `test005()` 390024ms
+第二次运行 `test005()` 195023ms
 ### random
 `NameRandom.randomNames()` 随机生成400个名字<br>
 `NumberRandom.randomNumber(int number)` 产生一个0~number-1 之间的随机数<br>
