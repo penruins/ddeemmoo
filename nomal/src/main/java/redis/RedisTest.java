@@ -7,15 +7,18 @@ import redis.clients.jedis.Jedis;
  */
 public class RedisTest {
   public static void main(String[] args) {
-    test002();
+    test003();
   }
   public static void test001() {
     Jedis jedis = new Jedis("localhost");
     System.out.println(jedis.ping());
-
   }
   public static void test002() {
     Jedis jedis = new Jedis("localhost");
     jedis.set("penruins","lx_tdcq_king@icloud.com");
+  }
+  public static void test003() {
+    Jedis jedis = new Jedis("localhost");
+    System.out.println(jedis.get("penruins"));
   }
 }

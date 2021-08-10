@@ -10,11 +10,17 @@
 ### database
 #### postgresql
 `MainTest.test001()` 查询数据库中 `t_users` 表中的所有数据，并且打印
+`MainTest.test002()` 在数据库表 `t_people` 插入数据，有一百六十万条
 ### random
-`NameRandom.randomNames()` 随机生成400个名字
+`NameRandom.randomNames()` 随机生成400个名字<br>
+`NumberRandom.randomNumber(int number)` 产生一个0~number-1 之间的随机数<br>
+`NumberRandom.test001()` 对上一个方法的测试<br>
+`random.entity.People` 后面对随机生成的用户信息进行封装<br>
+`script/db.sql t_people` 这个表用于存储随机生成的用户的信息
 ### redis
 `RedisTest.test001()` 连接 `redis`<br>
-`RedisTest.test002()` set a k-v to redis
+`RedisTest.test002()` set a k-v to redis<br>
+`RedisTest.test003()` get k-v from redis<br>
 ## springboot001
 `UserController.addUser` 测试将post请求中的数据封装为实体类<br>
 可以使用 postman 模拟post请求，请求地址 `localhost:8080/addUser`, 在 body里面添加 json 数据

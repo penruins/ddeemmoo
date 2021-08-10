@@ -1,11 +1,15 @@
 package database.postgresql;
 
+import random.NameRandom;
+import random.NumberRandom;
+import random.entity.People;
+
 import java.sql.*;
+import java.util.List;
 
 public class MainTest {
   public static void main(String[] args) throws Exception{
-    System.out.println("========== test001() ==========");
-    test001();
+    test002();
   }
 
   /**
@@ -35,6 +39,29 @@ public class MainTest {
       int age = resultSet.getInt("age");
       System.out.println("id=" + id + ", name=" + name + ", address=" + address + ", age=" + age);
     }
+  }
+  public static void test002() throws Exception{
+    String url = "jdbc:postgresql://localhost:5432/myfrist";
+    String username = "postgres";
+    String password = "mzrfviwhninayh";
 
+    String sql = "insert into t_people values(?,?,?);";
+
+    Class.forName("org.postgresql.Driver").newInstance();
+    Connection connection = DriverManager.getConnection(url,username,password);
+    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+
+    List<String> names = NameRandom.randomNames();
+    for(long i=1;i<names.size()*4000;i++) {
+      long id = (long) i;
+      String name = names.get((int)(i%400));
+      int age = NumberRandom.randomNumber(80);
+      preparedStatement.setLong(1,i);
+      preparedStatement.setString(2,name);
+      preparedStatement.setInt(3,age);
+      preparedStatement.executeUpdate();
+      System.out.println(i);
+    }
   }
 }
