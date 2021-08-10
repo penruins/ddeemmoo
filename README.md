@@ -25,8 +25,9 @@
   },
   "msg": "login success"
 }
-
 ```
+
+`UserController.addUser` http的response请求也是可以通过String类型来接收的
 
 `Springboot0001ApplicationTests.testSelect`
 读取数据库中t_user的数据
