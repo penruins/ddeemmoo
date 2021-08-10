@@ -6,10 +6,8 @@
 `HelloWorld` 打印 hello world
 
 ### date
-`DateTest` 对日期进行计算
-
-
-
+`DateTest.test001()` 对日期进行计算
+`DateTest.test002()` 如何获取此时此刻的小时数
 
 ## springboot001
 `UserController.addUser` 测试将post请求中的数据封装为实体类<br>

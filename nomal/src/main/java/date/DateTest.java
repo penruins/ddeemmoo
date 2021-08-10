@@ -6,6 +6,10 @@ import java.util.Date;
 
 public class DateTest {
   public static void main(String[] args) {
+    test002();
+  }
+
+  public static void test001() {
     SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
     Date now = new Date();
@@ -25,5 +29,15 @@ public class DateTest {
     System.out.println("今天最早的时间 " + d2);
     System.out.println("7天前时间 " + d3);
     System.out.println("30天前时间 " + d4);
+
+  }
+
+  /**
+   * 如何获取此时此刻的小时数
+   */
+  public static void test002() {
+    Date now = new Date();
+    SimpleDateFormat sdf1 = new SimpleDateFormat("HH");
+    System.out.println(sdf1.format(now));
   }
 }
