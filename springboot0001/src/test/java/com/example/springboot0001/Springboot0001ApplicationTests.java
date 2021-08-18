@@ -1,6 +1,8 @@
 package com.example.springboot0001;
 
+import com.example.springboot0001.entity.People;
 import com.example.springboot0001.entity.User2;
+import com.example.springboot0001.mapper.PeopleMapper;
 import com.example.springboot0001.mapper.UserMapper;
 import com.example.springboot0001.mapper.UserMapper2;
 import org.junit.jupiter.api.Test;
@@ -13,12 +15,12 @@ import java.util.List;
 
 @SpringBootTest
 class Springboot0001ApplicationTests {
-
   @Autowired
   private UserMapper userMapper;
-
   @Autowired
   private UserMapper2 userMapper2;
+  @Autowired
+  private PeopleMapper peopleMapper;
 
   @Test
   void contextLoads() {
@@ -31,6 +33,13 @@ class Springboot0001ApplicationTests {
     for(User user : userList) {
       System.out.println(user);
     }
+  }
+  // 打印 people 里所有的记录
+  @Test
+  public void testSelectPeople() {
+    System.out.println("----- selectAll method test -----");
+    List<People> peopleList = peopleMapper.selectList(null);
+    peopleList.forEach(System.out::println);
   }
   @Test
   public void testInsert() {

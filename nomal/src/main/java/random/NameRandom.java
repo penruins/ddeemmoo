@@ -8,6 +8,7 @@ public class NameRandom {
     randomNames().forEach(System.out::println);
 
   }
+  // 400个
   public static List<String> randomNames() {
     List<String> result = new ArrayList<>();
     String[] lastName = {"刘","李","王","文","谢",
