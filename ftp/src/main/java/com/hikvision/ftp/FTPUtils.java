@@ -30,6 +30,7 @@ public class FTPUtils {
     try {
       ftpClient.connect(hostname, port); //连接ftp服务器
       ftpClient.login(username, password);//登录ftp服务器
+      ftpClient.enterLocalPassiveMode();
       ftpClient.getReplyCode(); //是否成功登录服务器
     } catch (MalformedURLException e) {
       e.printStackTrace();
@@ -247,6 +248,46 @@ public class FTPUtils {
       }
     }
     return flag;
+  }
+
+  public InputStream getFileStream(String pathname, String filename, String localpath) {
+    boolean flag = false;
+    OutputStream os = null;
+    try {
+      initFtpClient();
+      //切换FTP目录
+      ftpClient.changeWorkingDirectory(pathname);
+      FTPFile[] ftpFiles = ftpClient.listFiles();
+      for (FTPFile file : ftpFiles) {
+        if (filename.equalsIgnoreCase(file.getName())) {
+//          File localFile = new File(localpath + "/" + file.getName());
+//          os = new FileOutputStream(localFile);
+//          ftpClient.retrieveFile(file.getName(), os);
+//          os.close();
+          return ftpClient.retrieveFileStream(filename);
+        }
+      }
+      ftpClient.logout();
+      flag = true;
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      if (ftpClient.isConnected()) {
+        try {
+          ftpClient.disconnect();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+      if (null != os) {
+        try {
+          os.close();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    return null;
   }
 
   /**

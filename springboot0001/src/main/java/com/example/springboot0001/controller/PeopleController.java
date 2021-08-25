@@ -4,12 +4,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboot0001.entity.People;
 import com.example.springboot0001.mapper.PeopleMapper;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Api("api for people")
@@ -34,4 +33,28 @@ public class PeopleController {
     peopleMapper.selectPage(page_,null);
     return page_.getRecords();
   }
+
+  @RequestMapping(value = "/printUserInfo", method = RequestMethod.POST)
+  public String login(HttpServletResponse response,
+                      @RequestParam(value = "id", required = true) String id,
+                      @RequestParam(value = "name", required = true) String name,
+                      @RequestParam(value = "age", required = true) String age) {
+      System.out.println(id);
+    System.out.println();
+    return "ok";
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<request version="1.0">
+<session_id>20210708100645087445</session_id>
+<timestamp>礭鎌</timestamp>
+<operator>scada1</operator>
+<request_type>准备</request_type>
+<target>110kV栗树园变10kV王栗联络Ⅲ回线062开关</target>
+<operation>合上</operation>
+</request>
