@@ -11,6 +11,9 @@
     <modules>
         <module>nomal</module>
         <module>hutool-using</module>
+        <module>springboot0001</module>
+        <module>springboot002</module>
+        <module>ftp</module>
     </modules>
 
     <properties>

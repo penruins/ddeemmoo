@@ -1,0 +1,4 @@
+## db.setting 文件
+url = jdbc:mysql://localhost:3306/books
+user = root
+pass = mzrfviwhninayh
