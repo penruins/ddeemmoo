@@ -14,6 +14,7 @@
         <module>springboot0001</module>
         <module>springboot002</module>
         <module>ftp</module>
+        <module>messageQueue</module>
     </modules>
 
     <properties>

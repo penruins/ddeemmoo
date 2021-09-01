@@ -2,3 +2,4 @@
 .idea
 hutool-using/target
 *.iml
+messageQueue/target
