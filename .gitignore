@@ -3,3 +3,6 @@
 hutool-using/target
 *.iml
 messageQueue/target
+springboot0002-rabbitmq/.mvn
+*.cmd
+springboot0002-rabbitmq/mvnw
