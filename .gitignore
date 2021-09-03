@@ -6,3 +6,8 @@ messageQueue/target
 springboot0002-rabbitmq/.mvn
 *.cmd
 springboot0002-rabbitmq/mvnw
+springboot0002-rabbitmq-consumer/.mvn
+springboot0002-rabbitmq-consumer/.mvn
+springboot0002-rabbitmq-consumer/mvnw
+springboot0003-redis/.mvn
+springboot0003-redis/mvnw

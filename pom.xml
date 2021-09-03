@@ -16,6 +16,7 @@
         <module>ftp</module>
         <module>messageQueue</module>
         <module>springboot0002-rabbitmq</module>
+        <module>springboot0002-rabbitmq-consumer</module>
     </modules>
 
     <properties>

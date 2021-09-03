@@ -1,0 +1,10 @@
+server:
+  port: 8022
+spring:
+  application:
+    name: rabbitmq-consumer
+  rabbitmq:
+    host: localhost
+    port: 5677
+    username: guest
+    password: guest
