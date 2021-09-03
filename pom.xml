@@ -17,6 +17,8 @@
         <module>messageQueue</module>
         <module>springboot0002-rabbitmq</module>
         <module>springboot0002-rabbitmq-consumer</module>
+        <module>springboot0003-redis</module>
+        <module>springboot0004-springtask</module>
     </modules>
 
     <properties>
