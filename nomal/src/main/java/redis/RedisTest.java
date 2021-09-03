@@ -7,6 +7,8 @@ import redis.clients.jedis.Jedis;
  */
 public class RedisTest {
   public static void main(String[] args) {
+    test001();
+    test002();
     test003();
   }
   public static void test001() {
