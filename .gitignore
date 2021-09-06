@@ -11,3 +11,7 @@ springboot0002-rabbitmq-consumer/.mvn
 springboot0002-rabbitmq-consumer/mvnw
 springboot0003-redis/.mvn
 springboot0003-redis/mvnw
+springboot0005-upload/.mvn
+*/.mvn
+springboot0006-exception/mvnw
+*/mvnw
