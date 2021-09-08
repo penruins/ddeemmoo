@@ -22,6 +22,7 @@
         <module>springboot0005-upload</module>
         <module>springboot0006-exception</module>
         <module>springboot0007-responseEntity</module>
+        <module>shiro</module>
     </modules>
 
     <properties>

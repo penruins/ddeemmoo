@@ -15,3 +15,5 @@ springboot0005-upload/.mvn
 */.mvn
 springboot0006-exception/mvnw
 */mvnw
+*/target
+barChart.jpeg

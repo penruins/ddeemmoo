@@ -22,7 +22,6 @@ public class MySqlTest {
     Connection connection = DriverManager.getConnection(url,username,password);
     PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-
     // 400个名字
     List<String> names = NameRandom.randomNames();
     for(long i=1;i<names.size()*4000;i++) {

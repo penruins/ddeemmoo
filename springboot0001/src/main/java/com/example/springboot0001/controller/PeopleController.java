@@ -27,11 +27,17 @@ public class PeopleController {
   public List<People> listUsers() {
     return peopleMapper.selectList(null);
   }
+
   @RequestMapping(value = "/listUsers/{page}/{size}", method = RequestMethod.GET)
   public List<People> listUsers(@PathVariable long page, @PathVariable long size) {
     Page<People> page_ = new Page<>(page,size);
     peopleMapper.selectPage(page_,null);
     return page_.getRecords();
+  }
+
+  @RequestMapping(value = "/count", method = RequestMethod.GET)
+  public Long getCount() {
+    return peopleMapper.getCount();
   }
 
   @RequestMapping(value = "/printUserInfo", method = RequestMethod.POST)
